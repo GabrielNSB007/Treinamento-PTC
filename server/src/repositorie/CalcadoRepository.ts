@@ -5,11 +5,11 @@ export const readAllSizeCalcado = async (req:Request, res:Response) => {
         
     try {
 
-        const {size} = req.params
+        const {tamanho} = req.params
 
         const calcados = await prisma.calcado.findMany({
             where : {
-                tamanho: parseInt(size)
+                tamanho: parseInt(tamanho)
             }
         });
 
@@ -33,11 +33,11 @@ export const readAllBrandCalcado = async (req:Request, res:Response) => {
         
     try {
 
-        const {brand} = req.params
+        const {marca} = req.params
 
         const calcados = await prisma.calcado.findMany({
             where : {
-                marca: brand
+                marca: marca
             }
         })
 
