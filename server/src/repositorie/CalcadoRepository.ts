@@ -13,7 +13,7 @@ export const readAllSizeCalcado = async (req:Request, res:Response) => {
             }
         });
 
-        if (!calcados){
+        if (calcados.length === 0){
             return res.status(404).json({
                 message: "Nenhum calçado desse tamanho criado ainda."
             })
@@ -41,7 +41,7 @@ export const readAllBrandCalcado = async (req:Request, res:Response) => {
             }
         })
 
-        if (!calcados){
+        if (calcados.length === 0){
             return res.status(404).json({
                 message: "Nenhum calçado dessa marca criado ainda."
             })
@@ -66,7 +66,7 @@ export const readStock = async (req:Request, res:Response) => {
             }
         })
 
-        if (!totalStock){
+        if (totalStock._sum.quantidade_em_estoque === null){
             return res.status(404).json({
                 message: "Nenhum calçado criado ainda."
             })
